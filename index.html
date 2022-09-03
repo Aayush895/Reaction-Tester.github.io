@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Tester</title>
+</head>
+<style>
+    h1,p {
+        text-align: center;
+    }
+    #shape {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+        left: 43%;
+        margin-top: 5%;
+    }
+    #time-taken {
+        font-size: large;
+    }
+</style>
+<body>
+    <h1>Hi Welcome to this sample Reaction Tester</h1>
+    <p>Please click on the box below so that we measure your reaction time</p>
+    <div id="shape"></div>
+    <p id="time-taken"></p>
+</body>
+<script>
+    var startTime = new Date().getTime();
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+
+        for (var index = 0; index < 6; index++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+
+        return color;
+    }
+
+    document.getElementById("shape").onclick = function () {
+        var endTime = new Date().getTime();
+        alert((endTime - startTime)/1000);
+        document.getElementById("shape").style.backgroundColor = getRandomColor();
+        startTime = new Date().getTime();
+    }
+</script>
+</html>
